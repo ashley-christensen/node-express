@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const campsiteRouter = require('./routes/campsiteRouter');
+const promotionRouter = require('./routes/promotionRouter');
+const partnerRouter = require('./routes/partnerRouter');
 
 const hostname = 'localhost';
 const port = 3008;
@@ -10,6 +12,8 @@ app.use(morgan('dev'));//config morgan to log using dev version
 app.use(express.json());//middleware to parse JSON body/data into usable data as props on req object
 
 app.use('/campsites', campsiteRouter);
+app.use('/promotions', promotionRouter);
+app.use('/partners', partnerRouter);
 
 app.use(express.static(__dirname + '/public'));//auto serves index.html if we send req to just hostname:port
 
